@@ -6,12 +6,11 @@ $dbname = 'contact';
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 
-// Check connection
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Code to handle form submission
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -22,7 +21,6 @@ if (isset($_POST['submit'])) {
     mysqli_query($conn, $sql);
 }
 
-// Code to fetch and display data
 $sql = "SELECT * FROM student";
 $result = mysqli_query($conn, $sql);
 
@@ -49,7 +47,7 @@ mysqli_close($conn);
         text-align: center;
         font-weight: bold;
         font-size: 30px;
-        margin-bottom: 20px; /* Adjust as needed */
+        margin-bottom: 20px; 
     }
    
     form {
@@ -127,7 +125,6 @@ mysqli_close($conn);
     </form>
 
     <?php
-    // Display data below the form
     if (mysqli_num_rows($result) > 0) {
         echo '<p class="data">Student Data:</p>';
         echo '<table border="1">';
